@@ -2,31 +2,26 @@
 
 (function(){
 
-	function Phone(brand, price, color, os) {
-		this.brand = brand;
-		this.price = price;
-		this.color = color;
-		this.os = os;
+	function Button(text) {
+		this.text = text || 'Hello!';
 	}
 
-	Phone.prototype.printInfo = function() {
-		console.log('The phone brand is: ' + this.brand + ', color is: ' + this.color + ' and the price is: ' + this.price + '.');
+	Button.prototype = {
+		create: function() {
+			var self = this;
+			this.element = document.createElement('button');
+			this.element.innerText = this.text;
+			this.element.addEventListener('click', function() {
+				alert(self.text);
+			});
+			document.body.appendChild(this.element);
+		}
 	}
 
-	Phone.prototype.sys = function() {
-		console.log(this.brand + ' operating system is: ' + this.os + '.');
-	}
+	var btn1 = new Button('Hello!');
+	btn1.create();
 
-	var SamsungGalaxyS6 = new Phone('Samsung', 800, 'black', 'Android');
-	var iPhone6s = new Phone('Apple', 1400, 'silver', 'iOS');
-	var OnePlusOne = new Phone('OnePlus', 1000, 'white', 'Android');
-
-	SamsungGalaxyS6.printInfo();
-	iPhone6s.printInfo();
-	OnePlusOne.printInfo();
-
-	SamsungGalaxyS6.sys();
-	iPhone6s.sys();
-	OnePlusOne.sys();
+	var btn2 = new Button('Hi!');
+	btn2.create();
 
 })();
