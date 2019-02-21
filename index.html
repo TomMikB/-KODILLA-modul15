@@ -2,10 +2,34 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Modul 15.5</title>
+		<title>Modul 15.6 - Kanban board</title>
+		<link  href="http://fonts.googleapis.com/css?family=Reenie+Beanie:regular" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="style.css">
 	</head>
 	<body>
-		<h1>MODUL 15.5</h1>
+		<div id="board" class="board">
+			<h1>MODUL 15.6 - Kanban board</h1>
+			<button class="create-column">Add a column</button>
+			<div class="column-container"></div>
+		</div>
+<!-- column template -->
+		<script id="column-template" type="x-tmpl-mustache">
+			<div class="column">
+				<h2 class="column-title">{{ name }}</h2>
+				<button class="btn-delete">X</button>
+				<button class="add-card">Add a card</button>
+				<ul id={{ id }} class="column-card-list"></ul>
+			</div>
+		</script>
+<!-- card template -->
+		<script id="card-template" type="x-tmpl-mustache">
+			<div class="card">
+				<p class="card-description"><button class="btn-delete">x</button>{{ description }}</p>
+			</div>
+		</script>
+<!-- scripts -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.6.0/Sortable.min.js"></script>
 		<script src="script.js"></script>
 	</body>
 </html>
